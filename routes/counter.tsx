@@ -17,8 +17,7 @@ export default function Greet() {
   return (
     <div class={tw`p-4 mx-auto max-w-screen-md`}>
       <Navgition></Navgition>
-      <img src="/logo.svg" height="100px" alt="the fresh logo: a sliced lemon dripping with juice" />
-      <p class={tw`my-6`}>Welcome to `hedanli's fresh`. Try update this message in the ./routes/index.tsx file, and refresh.</p>
+      <div class={tw`my-6`}></div>
       <Counter start={3} />
     </div>
   );

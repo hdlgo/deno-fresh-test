@@ -15,49 +15,13 @@ interface University {
   alpha_two_code: string;
 }
 
-export const handler: Handler<University[] | null> = {
-  async GET(_, ctx) {
-    const textList = await fetch("https://cloudapi.bytedance.net/faas/services/ttixeo/invoke/getTable");
-    const textListJson = await textList.json();
-    return ctx.render({
-      textList: textListJson,
-    });
-  },
-  async POST(req, ctx) {
-    console.log({ req, ctx });
-    const url = "https://cloudapi.bytedance.net/faas/services/ttixeo/invoke/hello";
-    const res = await fetch(url, {
-      method: "POST",
-      body: JSON.stringify({
-        text: "ceshiceshi",
-      }),
-    });
-    const textList = await fetch("https://cloudapi.bytedance.net/faas/services/ttixeo/invoke/getTable");
-    const textListJson = await textList.json();
-    return ctx.render({
-      textList: textListJson,
-    });
-  },
-};
-
-export default function Home({ data }: PageProps<University[] | null>) {
-  if (!data) return <div class={tw`p-4 mx-auto max-w-screen-md`}>loading...</div>;
-  const { textList } = data;
+export default function Home() {
   return (
     <div class={tw`p-4 mx-auto max-w-screen-md`}>
       <Navgition></Navgition>
-      <p class={tw`my-6 text-3xl font-bold`}>my table list</p>
-      <form class={tw`my-6`} method="post">
-        {/* <input class={tw`border(gray-100 1)`} type="text" name="write" /> */}
-        <button type="submit">Add</button>
-      </form>
-      {textList.reverse().map((item) => (
-        <div class={tw`my-4`}>
-          <h2>{item.text}</h2>
-          <p>{moment(item.createdAt).format("YYYY-MM-DD HH:mm:ss")}</p>
-          <p>{moment(item.updatedAt).format("YYYY-MM-DD HH:mm:ss")}</p>
-        </div>
-      ))}
+      <p class={tw`my-6 text-3xl font-bold`}>Welcome</p>
+      <img src="/logo.svg" height="100px" alt="the fresh logo: a sliced lemon dripping with juice" />
+      <p class={tw`my-6`}>Welcome to `hedanli's fresh`. </p>
     </div>
   );
 }

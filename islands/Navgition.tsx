@@ -13,6 +13,10 @@ export default function Navgition(props) {
       pathname: "",
     },
     {
+      key: "table",
+      pathname: "/table",
+    },
+    {
       key: "countdown",
       pathname: "/countdown",
     },
