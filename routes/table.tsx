@@ -51,7 +51,7 @@ export default function Table({ data }: PageProps<University[] | null>) {
         {/* <input class={tw`border(gray-100 1)`} type="text" name="write" /> */}
         <button type="submit">Add</button>
       </form>
-      {textList.reverse().map((item) => (
+      {(textList || []).reverse().map((item) => (
         <div class={tw`my-4`}>
           <h2>{item.text}</h2>
           <p>{moment(item.createdAt).format("YYYY-MM-DD HH:mm:ss")}</p>
