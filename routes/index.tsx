@@ -1,10 +1,8 @@
 /** @jsx h */
 import { h } from "preact";
 import { tw } from "@twind";
-import Counter from "../islands/Counter.tsx";
 import Navgition from "../islands/Navgition.tsx";
 import { PageProps, Handler } from "$fresh/server.ts";
-import { moment } from "$moment";
 
 interface University {
   domains: string[];

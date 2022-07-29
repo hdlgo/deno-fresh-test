@@ -1,7 +1,6 @@
 /** @jsx h */
 import { h } from "preact";
 import { tw } from "@twind";
-import Counter from "../islands/Counter.tsx";
 import Navgition from "../islands/Navgition.tsx";
 import { PageProps, Handler } from "$fresh/server.ts";
 import { moment } from "$moment";
@@ -26,7 +25,7 @@ export const handler: Handler<University[] | null> = {
   async POST(req, ctx) {
     console.log({ req, ctx });
     const url = "https://cloudapi.bytedance.net/faas/services/ttixeo/invoke/hello";
-    const res = await fetch(url, {
+    await fetch(url, {
       method: "POST",
       body: JSON.stringify({
         text: "ceshiceshi",
@@ -53,6 +52,7 @@ export default function Table({ data }: PageProps<University[] | null>) {
       </form>
       {(textList || []).reverse().map((item) => (
         <div class={tw`my-4`}>
+          <h2>{item.test123}</h2>
           <h2>{item.text}</h2>
           <p>{moment(item.createdAt).format("YYYY-MM-DD HH:mm:ss")}</p>
           <p>{moment(item.updatedAt).format("YYYY-MM-DD HH:mm:ss")}</p>
